@@ -2,10 +2,10 @@ ARG PORT=4000
 
 FROM --platform=$BUILDPLATFORM node:lts-alpine AS build
 WORKDIR /build
-COPY package.json .
-COPY package-lock.json .
-RUN npm install
+# COPY package.json .
+# COPY package-lock.json .
 COPY . .
+RUN npm install
 RUN npm run build
 
 FROM node:lts-alpine
